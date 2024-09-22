@@ -4,15 +4,8 @@ import 'package:namer_app/screens/generator/widgets/big_card.dart';
 import 'package:namer_app/screens/generator/widgets/history_chart.dart';
 import 'package:namer_app/state/app_state.dart';
 
-class GeneratorPage extends StatefulWidget {
+class GeneratorPage extends StatelessWidget {
   const GeneratorPage({super.key});
-
-  @override
-  State<GeneratorPage> createState() => _GeneratorPageState();
-}
-
-class _GeneratorPageState extends State<GeneratorPage> {
-
 
   @override
   Widget build(final BuildContext context) {
