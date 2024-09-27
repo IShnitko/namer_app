@@ -12,11 +12,11 @@ class GeneratorPage extends StatefulWidget {
 }
 
 class _GeneratorPageState extends State<GeneratorPage> {
-  int _counter = 0; // Used to trigger rebuilds of the SubWidget
+  Key _key = UniqueKey(); // Used to trigger rebuilds of the SubWidget
 
   void _rebuildSubWidget() {
     setState(() {
-      _counter++; // Increment the counter to force rebuild
+      _key = UniqueKey(); // Increment the counter to force rebuild
     });
   }
   @override
@@ -38,7 +38,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
             flex: 2,
             child: HistoryChart(),
           ),
-          BigCard(pair: pair, key: UniqueKey(),),
+          BigCard(pair: pair, key: _key,),
           const SizedBox(height: 10),
           Row(
             mainAxisSize: MainAxisSize.min,
@@ -54,6 +54,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
                   AppStateWidget
                       .of(context)
                       .getNext();
+                  _rebuildSubWidget();
                 },
                 child: const Text('Next'),
               ),
