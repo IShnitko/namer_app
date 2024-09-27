@@ -21,7 +21,8 @@ class _HistoryChartState extends State<HistoryChart> {
 
   @override
   Widget build(final BuildContext context) {
-    final AppState appState = AppStateScope.of(context)..historyListKey = _key;
+    final AppState appState = AppStateScope.of(context)
+      ..historyListKey = _key;
     return ShaderMask(
       shaderCallback: (final Rect bounds) => _gradient.createShader(bounds),
       blendMode: BlendMode.dstIn,
@@ -69,4 +70,3 @@ extension StringExtension on String {
     return '${this[0].toUpperCase()}${substring(1).toLowerCase()}';
   }
 }
-

@@ -73,13 +73,15 @@ class _FavoritesPageState extends State<FavoritesPage> {
         SliverPadding(
             padding: const EdgeInsets.all(8),
             sliver: SliverAnimatedList(
-              key: _key,
+              key: appState.favoritesListKey,
+              initialItemCount: appState.favorites.length,
               itemBuilder: (final BuildContext context, final int index,
                   final Animation<double> animation,) {
                 final WordPair pair = appState.favorites[index];
                 return _buildListTile(context, index, animation, pair);
               },
-            ),),
+            ),
+        ),
       ],
     );
   }

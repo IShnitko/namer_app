@@ -24,11 +24,11 @@ class _BigCardState extends State<BigCard> {
 
   void _fadeIn() {
     setState(() {
-      _opacity = 0.0; // Reset opacity to 0
+      _opacity = 0.0;
     });
     Future.delayed(Duration(milliseconds: 100), () {
       setState(() {
-        _opacity = 1.0; // Fade in
+        _opacity = 1.0;
       });
     });
   }

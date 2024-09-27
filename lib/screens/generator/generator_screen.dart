@@ -4,9 +4,21 @@ import 'package:namer_app/screens/generator/widgets/big_card.dart';
 import 'package:namer_app/screens/generator/widgets/history_chart.dart';
 import 'package:namer_app/state/app_state.dart';
 
-class GeneratorPage extends StatelessWidget {
+class GeneratorPage extends StatefulWidget {
   const GeneratorPage({super.key});
 
+  @override
+  State<GeneratorPage> createState() => _GeneratorPageState();
+}
+
+class _GeneratorPageState extends State<GeneratorPage> {
+  int _counter = 0; // Used to trigger rebuilds of the SubWidget
+
+  void _rebuildSubWidget() {
+    setState(() {
+      _counter++; // Increment the counter to force rebuild
+    });
+  }
   @override
   Widget build(final BuildContext context) {
     final AppState appState = AppStateScope.of(context);
@@ -26,7 +38,7 @@ class GeneratorPage extends StatelessWidget {
             flex: 2,
             child: HistoryChart(),
           ),
-          BigCard(pair: pair,),
+          BigCard(pair: pair, key: UniqueKey(),),
           const SizedBox(height: 10),
           Row(
             mainAxisSize: MainAxisSize.min,
